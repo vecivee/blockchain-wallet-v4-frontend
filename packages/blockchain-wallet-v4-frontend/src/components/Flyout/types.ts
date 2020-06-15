@@ -1,4 +1,5 @@
 export type FlyoutE2EType =
+  | 'blockchainComBalancesModal'
   | 'borrowModal'
   | 'faqModal'
   | 'interestModal'

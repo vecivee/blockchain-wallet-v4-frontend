@@ -127,6 +127,9 @@ const UpgradeWallet = React.lazy(() => import('./Wallet/UpgradeWallet'))
 
 // SOLO
 const Borrow = React.lazy(() => import('./Borrow'))
+const BlockchainComBalances = React.lazy(() =>
+  import('./BlockchainComBalances')
+)
 const Interest = React.lazy(() => import('./Interest'))
 const Onfido = React.lazy(() => import('./Onfido'))
 const QRCode = React.lazy(() => import('./QRCode'))
@@ -142,6 +145,7 @@ const Modals = () => (
       <AirdropSuccess />
       <BitpayInvoiceExpired />
       <BitpayInformational />
+      <BlockchainComBalances />
       <Borrow />
       <AutoDisconnection />
       <Confirm />

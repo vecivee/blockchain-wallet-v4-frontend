@@ -4,6 +4,7 @@ export type ModalNamesType =
   | 'AirdropClaim'
   | 'AirdropSuccess'
   | 'BitPayInvoiceExpired'
+  | 'BlockchainComBalances'
   | 'BORROW_MODAL'
   | 'Confirm'
   | 'FAQ_MODAL'

@@ -11,15 +11,16 @@ export const duration = 500
 export const slide = 500
 export const width = 480
 
-const defaultStyle = {
-  transition: `right ${duration}ms`,
-  right: `-${width}px`
-}
-
-const transitionStyles = {
-  entering: { right: `-${width}px` },
-  entered: { right: '0px' }
-}
+const defaultStyle = (props: OwnProps) =>
+  props.windowLocation === 'left'
+    ? {
+        transition: `left ${duration}ms`,
+        left: `-${width}px`
+      }
+    : {
+        transition: `right ${duration}ms`,
+        right: `-${width}px`
+      }
 
 const FlyoutModal = styled(Modal)`
   border-radius: 0px;
@@ -124,11 +125,23 @@ type OwnProps = {
   position: number
   total: number
   userClickedOutside: boolean
+  windowLocation?: 'right' | 'left'
 }
 
 class Flyout extends React.PureComponent<OwnProps> {
   render () {
     const { children, ...rest } = this.props
+
+    const transitionStyles = {
+      entering:
+        this.props.windowLocation === 'left'
+          ? { left: `-${width}px` }
+          : { right: `-${width}px` },
+      entered:
+        this.props.windowLocation === 'left'
+          ? { left: '0px' }
+          : { right: '0px' }
+    }
 
     return (
       <Transition
@@ -139,7 +152,10 @@ class Flyout extends React.PureComponent<OwnProps> {
           <FlyoutModal
             {...rest}
             type={'flyout'}
-            style={{ ...defaultStyle, ...transitionStyles[status] }}
+            style={{
+              ...defaultStyle(this.props),
+              ...transitionStyles[status]
+            }}
           >
             <FlyoutChildren direction={this.props.direction || 'left'}>
               <ReactCSSTransitionGroup

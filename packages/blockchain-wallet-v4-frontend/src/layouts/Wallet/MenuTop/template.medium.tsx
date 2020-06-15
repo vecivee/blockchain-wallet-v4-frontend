@@ -1,15 +1,7 @@
-import { Image } from 'blockchain-info-components'
-import { NavLink } from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarDivider,
-  NavbarHeader,
-  NavbarNav
-} from 'components/Navbar'
+import { Navbar, NavbarDivider, NavbarNav } from 'components/Navbar'
 import Balances from '../MenuLeft/Balances'
 import Features from './Features'
 import Refresh from './Refresh'
@@ -17,6 +9,7 @@ import SecurityCenter from './SecurityCenter'
 import Settings from './Settings'
 
 import { Props as OwnProps } from '.'
+import Brand from './Brand'
 
 type Props = {
   handleToggle: () => void
@@ -30,12 +23,6 @@ const NavbarContainer = styled.div`
   background-color: ${props => props.theme.grey900};
 `
 
-const BlockchainLogoImage = styled(Image)`
-  display: block;
-  height: 20px;
-  width: 160px;
-`
-
 const NavbarBottomStyled = styled(Navbar)`
   display: flex;
   box-sizing: border-box;
@@ -46,13 +33,7 @@ const Medium: React.FC<Props> = props => {
   return (
     <NavbarContainer>
       <Navbar>
-        <NavbarHeader>
-          <NavbarBrand>
-            <NavLink to='/home' data-e2e='homeLink'>
-              <BlockchainLogoImage name='blockchain-logo' />
-            </NavLink>
-          </NavbarBrand>
-        </NavbarHeader>
+        <Brand {...props} />
         <Spacer />
         <NavbarNav>
           <SecurityCenter />
