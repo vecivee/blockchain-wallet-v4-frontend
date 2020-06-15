@@ -294,6 +294,7 @@ type MessagesType = {
   'copy.from': 'From'
   'copy.from:': 'From:'
   'copy.here': 'here'
+  'copy.interest.earned': 'Interest Earned'
   'copy.loading': 'Loading...'
   'copy.pending': 'Pending'
   'copy.new': 'New'

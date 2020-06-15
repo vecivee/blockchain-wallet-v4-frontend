@@ -4,6 +4,7 @@ import {
   getBtcBalance,
   getEthBalance,
   getPaxBalance,
+  getRatesSelector,
   getXlmBalance
 } from 'components/Balances/wallet/selectors'
 import { lift } from 'ramda'
@@ -24,20 +25,6 @@ const getBalanceSelector = (coin: CoinType) => {
   }
 }
 
-const getRatesSelector = (coin: CoinType, state) => {
-  switch (coin) {
-    case 'BTC':
-      return selectors.core.data.btc.getRates(state)
-    case 'BCH':
-      return selectors.core.data.bch.getRates(state)
-    case 'ETH':
-      return selectors.core.data.eth.getRates(state)
-    case 'XLM':
-      return selectors.core.data.xlm.getRates(state)
-    case 'PAX':
-      return selectors.core.data.eth.getErc20Rates(state, 'pax')
-  }
-}
 export const getBalance = state => {
   const offersR = selectors.components.borrow.getOffers(state)
   const values = selectors.form.getFormValues('initBorrow')(state) as {
