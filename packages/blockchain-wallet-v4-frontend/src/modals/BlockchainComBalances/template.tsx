@@ -5,18 +5,21 @@ import { FlyoutWrapper } from 'components/Flyout'
 import { Icon, Image } from 'blockchain-info-components'
 
 import { Props as OwnProps } from '.'
+import Exchange from './Exchange'
+import Explorer from './Explorer'
+import Support from './Support'
 import Wallet from './Wallet'
 
 const Wrapper = styled.div`
   height: 100%;
   background-color: ${props => props.theme.grey900};
 `
-
-export const CustomFlyoutWrapper = styled(FlyoutWrapper)`
+const CustomFlyoutWrapper = styled(FlyoutWrapper)`
   padding: 20px 0px 20px 24px;
-  &:not(:first-child) {
-    border-top: 1px solid ${props => props.theme.whiteFade100};
-  }
+`
+const BalanceWrapper = styled.div`
+  padding-left: 24px;
+  border-top: 1px solid ${props => props.theme.whiteFade100};
 `
 const BlockchainLogoImage = styled(Image)`
   display: block;
@@ -46,9 +49,14 @@ const Template = (props: Props) => {
           />
         </Top>
       </CustomFlyoutWrapper>
-      <CustomFlyoutWrapper>
+      <BalanceWrapper>
         <Wallet />
-      </CustomFlyoutWrapper>
+        <Exchange />
+      </BalanceWrapper>
+      <BalanceWrapper>
+        <Explorer />
+        <Support />
+      </BalanceWrapper>
     </Wrapper>
   )
 }
