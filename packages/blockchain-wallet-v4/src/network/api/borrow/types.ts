@@ -78,6 +78,13 @@ export type LoanType = {
     | 'FAILED'
 }
 
+export enum OpenBorrowStatusEnum {
+  'OPEN',
+  'PENDING_PRINCIPAL_WITHDRAW',
+  'PENDING_CLOSE',
+  'ON_CALL'
+}
+
 export type OfferType = {
   callTerms: {
     callTriggerRatio: number

@@ -1,14 +1,23 @@
+import { bindActionCreators, Dispatch } from 'redux'
 import { connect, ConnectedProps } from 'react-redux'
+import { Text } from 'blockchain-info-components'
 import React, { PureComponent } from 'react'
 
+import { actions } from 'data'
 import { BalanceLoader } from '../../components'
 import { fiatToString } from 'core/exchange/currency'
 import { FiatType, RemoteDataType } from 'core/types'
 import { getData } from './selectors'
+import { Remote } from 'core'
 import { RootState } from 'data/rootReducer'
-import { Text } from 'blockchain-info-components'
 
-class InterestTotal extends PureComponent<Props> {
+class BorrowTotal extends PureComponent<Props> {
+  componentDidMount () {
+    if (!Remote.Success.is(this.props.data)) {
+      this.props.borrowActions.fetchUserBorrowHistory()
+    }
+  }
+
   render () {
     return this.props.data.cata({
       Success: val => (
@@ -31,10 +40,14 @@ const mapStateToProps = (state: RootState): LinkStatePropsType => ({
   data: getData(state)
 })
 
-const connector = connect(mapStateToProps)
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  borrowActions: bindActionCreators(actions.components.borrow, dispatch)
+})
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type OwnProps = {}
-type SuccessStateType = {
+export type SuccessStateType = {
   balance: number
   walletCurrency: FiatType
 }
@@ -43,4 +56,4 @@ type LinkStatePropsType = {
 }
 type Props = OwnProps & ConnectedProps<typeof connector>
 
-export default connector(InterestTotal)
+export default connector(BorrowTotal)

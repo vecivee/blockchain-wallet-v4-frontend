@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { FormattedMessage } from 'react-intl'
+import BorrowTotal from './BorrowTotal'
 import InterestTotal from './InterestTotal'
 import WalletTotal from './WalletTotal'
 
@@ -73,12 +74,9 @@ const Wallet: React.FC<Props> = () => {
               weight={500}
               style={{ marginBottom: '4px' }}
             >
-              <FormattedMessage
-                id='scenes.wallet.menutop.balance.totalbalance'
-                defaultMessage='Total Balance'
-              />
+              <FormattedMessage id='copy.borrowed' defaultMessage='Borrowed' />
             </Text>
-            <WalletTotal />
+            <BorrowTotal />
           </div>
           <div />
         </Row>

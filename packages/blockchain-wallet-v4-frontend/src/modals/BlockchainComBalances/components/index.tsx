@@ -8,5 +8,5 @@ const CustomSkeleton = styled(SkeletonRectangle)`
 `
 
 export const BalanceLoader = () => {
-  return <CustomSkeleton height='14px' width='60px' bgColor='grey300' />
+  return <CustomSkeleton height='14px' width='42px' bgColor='grey300' />
 }

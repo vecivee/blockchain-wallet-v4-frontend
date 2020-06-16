@@ -289,6 +289,7 @@ type MessagesType = {
   'copy.address': 'Address'
   'copy.amount': 'Amount'
   'copy.balance': 'Balance'
+  'copy.borrowed': 'Borrowed'
   'copy.date': 'Date'
   'copy.failed': 'Failed'
   'copy.from': 'From'

@@ -7,7 +7,7 @@ import { RemoteDataType } from 'core/types'
 import { RootState } from 'data/rootReducer'
 import { Text } from 'blockchain-info-components'
 
-class Wallet extends PureComponent<Props> {
+class WalletTotal extends PureComponent<Props> {
   render () {
     return this.props.data.cata({
       Success: val => (
@@ -41,4 +41,4 @@ type LinkStatePropsType = {
 }
 type Props = OwnProps & ConnectedProps<typeof connector>
 
-export default connector(Wallet)
+export default connector(WalletTotal)
