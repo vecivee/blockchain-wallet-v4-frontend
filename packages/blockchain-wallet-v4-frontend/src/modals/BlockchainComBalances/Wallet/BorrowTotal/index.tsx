@@ -26,7 +26,7 @@ class BorrowTotal extends PureComponent<Props> {
         </Text>
       ),
       Failure: () => (
-        <Text size='14px' color='red600'>
+        <Text size='14px' color='red600' weight={600}>
           Error.
         </Text>
       ),

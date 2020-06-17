@@ -4,9 +4,12 @@ import styled from 'styled-components'
 import { SkeletonRectangle } from 'blockchain-info-components'
 
 export const Header = styled.div`
+  display: flex;
   margin-bottom: 16px;
+  align-items: center;
+  justify-content: space-between;
 `
-export const SmallHeader = styled.div`
+export const SmallHeader = styled(Header)`
   margin-bottom: 8px;
 `
 export const Row = styled.div`

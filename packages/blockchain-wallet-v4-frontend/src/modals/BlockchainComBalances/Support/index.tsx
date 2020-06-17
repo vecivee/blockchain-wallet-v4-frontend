@@ -1,4 +1,4 @@
-import { Icon, Text } from 'blockchain-info-components'
+import { Icon, Link, Text } from 'blockchain-info-components'
 import React from 'react'
 
 import { Child, Row, SmallHeader, Wrapper } from '../components'
@@ -8,8 +8,8 @@ const Explorer: React.FC<Props> = () => {
   return (
     <Wrapper>
       <Icon
-        name='list'
-        size='24px'
+        name='learning'
+        size='16px'
         color='orange400'
         style={{ marginRight: '20px' }}
       />
@@ -21,6 +21,13 @@ const Explorer: React.FC<Props> = () => {
               defaultMessage='Need Help?'
             />
           </Text>
+          <Link
+            href='https://support.blockchain.com'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <Icon name='external-link' color='grey400' role='button' />
+          </Link>
         </SmallHeader>
         <Row>
           <div>
