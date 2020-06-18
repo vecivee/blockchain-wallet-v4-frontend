@@ -29,10 +29,19 @@ const CustomSkeleton = styled(SkeletonRectangle)`
 `
 export const Wrapper = styled.div`
   display: flex;
-  padding-bottom: 24px;
-  &:not(:first-child) {
-    ${Child} {
-      border-top: 1px solid ${props => props.theme.whiteFade100};
+  padding-left: 24px;
+  padding-bottom: 20px;
+  transition: background-color 0.3s;
+  span[role='button'] {
+    transition: color 0.3s;
+  }
+  &.link {
+    cursor: pointer;
+    &:hover {
+      background-color: ${props => props.theme.grey800};
+      span[role='button'] {
+        color: ${props => props.theme.white};
+      }
     }
   }
 `
