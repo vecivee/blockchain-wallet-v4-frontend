@@ -22,7 +22,7 @@ const Exchange: React.FC<Props> = props => {
         <Child>
           <Header>
             <Text size='20px' color='teal400' weight={600}>
-              Blockchain.com Exchange
+              Blockchain Exchange
             </Text>
             <Icon name='external-link' color='grey400' role='button' />
           </Header>

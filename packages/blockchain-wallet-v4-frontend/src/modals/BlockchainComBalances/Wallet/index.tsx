@@ -19,7 +19,7 @@ const Wallet: React.FC<Props> = () => {
       <Child>
         <Header>
           <Text size='20px' color='blue400' weight={600}>
-            Blockchain.com Wallet
+            Blockchain Wallet
           </Text>
         </Header>
         <Row>
