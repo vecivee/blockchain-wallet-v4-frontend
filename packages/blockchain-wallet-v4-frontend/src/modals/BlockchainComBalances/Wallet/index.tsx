@@ -5,6 +5,7 @@ import { BalanceIcon, Child, Header, Row, Wrapper } from '../components'
 import { FormattedMessage } from 'react-intl'
 import BorrowTotal from './BorrowTotal'
 import InterestTotal from './InterestTotal'
+import WalletKycStatus from './WalletKycStatus'
 import WalletTotal from './WalletTotal'
 
 const Wallet: React.FC<Props> = () => {
@@ -64,6 +65,7 @@ const Wallet: React.FC<Props> = () => {
           </div>
           <div />
         </Row>
+        <WalletKycStatus />
       </Child>
     </Wrapper>
   )

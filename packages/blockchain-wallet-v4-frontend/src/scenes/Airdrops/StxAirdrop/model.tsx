@@ -207,7 +207,7 @@ export const StxStatus = ({
       return (
         <GreyCartridge>
           <FormattedMessage
-            id='scenes.airdrop.stx.pending'
+            id='copy.identity_verification.pending'
             defaultMessage='Pending KYC'
           />
         </GreyCartridge>

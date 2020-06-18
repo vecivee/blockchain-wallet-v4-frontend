@@ -32,6 +32,7 @@ export type ModalNamesType =
 
 export type ModalOriginType =
   | 'AirdropClaimGoal'
+  | 'BalancesFlyout'
   | 'BorrowHistorySection'
   | 'BorrowLandingPage'
   | 'EmptyFeed'
