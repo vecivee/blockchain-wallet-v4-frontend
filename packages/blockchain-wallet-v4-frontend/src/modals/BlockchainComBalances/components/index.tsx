@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { SkeletonRectangle } from 'blockchain-info-components'
+import { Icon, SkeletonRectangle } from 'blockchain-info-components'
 
 export const Header = styled.div`
   display: flex;
@@ -18,15 +18,22 @@ export const Row = styled.div`
 `
 export const Child = styled.div`
   width: 100%;
+  padding-top: 20px;
+  padding-right: 24px;
+`
+export const BalanceIcon = styled(Icon)`
+  padding-top: 20px;
 `
 const CustomSkeleton = styled(SkeletonRectangle)`
   margin-top: 6px;
 `
 export const Wrapper = styled.div`
   display: flex;
-  padding: 20px 24px 20px 0px;
+  padding-bottom: 24px;
   &:not(:first-child) {
-    border-top: 1px solid ${props => props.theme.whiteFade100};
+    ${Child} {
+      border-top: 1px solid ${props => props.theme.whiteFade100};
+    }
   }
 `
 

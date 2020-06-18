@@ -1,7 +1,7 @@
-import { Icon, Text } from 'blockchain-info-components'
+import { Text } from 'blockchain-info-components'
 import React from 'react'
 
-import { Child, Header, Row, Wrapper } from '../components'
+import { BalanceIcon, Child, Header, Row, Wrapper } from '../components'
 import { FormattedMessage } from 'react-intl'
 import BorrowTotal from './BorrowTotal'
 import InterestTotal from './InterestTotal'
@@ -10,7 +10,7 @@ import WalletTotal from './WalletTotal'
 const Wallet: React.FC<Props> = () => {
   return (
     <Wrapper>
-      <Icon
+      <BalanceIcon
         name='wallet-filled'
         size='24px'
         color='blue400'

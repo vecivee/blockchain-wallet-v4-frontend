@@ -1,13 +1,13 @@
-import { Icon, Text } from 'blockchain-info-components'
+import { Text } from 'blockchain-info-components'
 import React from 'react'
 
-import { Child, Header, Row, Wrapper } from '../components'
+import { BalanceIcon, Child, Header, Row, Wrapper } from '../components'
 // import { FormattedMessage } from 'react-intl'
 
 const Exchange: React.FC<Props> = () => {
   return (
     <Wrapper>
-      <Icon
+      <BalanceIcon
         name='bolt-with-background'
         size='22px'
         color='teal400'

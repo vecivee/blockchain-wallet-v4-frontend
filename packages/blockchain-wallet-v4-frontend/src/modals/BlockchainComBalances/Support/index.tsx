@@ -1,13 +1,13 @@
 import { Icon, Link, Text } from 'blockchain-info-components'
 import React from 'react'
 
-import { Child, Row, SmallHeader, Wrapper } from '../components'
+import { BalanceIcon, Child, Row, SmallHeader, Wrapper } from '../components'
 import { FormattedMessage } from 'react-intl'
 
 const Explorer: React.FC<Props> = () => {
   return (
     <Wrapper>
-      <Icon
+      <BalanceIcon
         name='learning'
         size='16px'
         color='orange400'
