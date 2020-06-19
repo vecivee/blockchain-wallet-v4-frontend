@@ -93,7 +93,8 @@ export default ({ api, coreSagas, networks }) => {
         return yield put(
           A.fetchUserDataSuccess({
             state: USER_ACTIVATION_STATES.NONE,
-            kycState: KYC_STATES.NONE
+            kycState: KYC_STATES.NONE,
+            tiers: { current: 0 }
           })
         )
       }

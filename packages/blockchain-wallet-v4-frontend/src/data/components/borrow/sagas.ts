@@ -40,8 +40,11 @@ export default ({
   coreSagas: any
   networks: any
 }) => {
-  const waitForUserData = profileSagas({ api, coreSagas, networks })
-    .waitForUserData
+  const { isTier2, waitForUserData } = profileSagas({
+    api,
+    coreSagas,
+    networks
+  })
   const calculateProvisionalPayment = exchangeSagaUtils({ coreSagas, networks })
     .calculateProvisionalPayment
   const {
@@ -222,6 +225,8 @@ export default ({
     try {
       yield put(A.fetchUserBorrowHistoryLoading())
       yield call(waitForUserData)
+      if (!(yield call(isTier2)))
+        return yield put(A.fetchUserBorrowHistorySuccess([]))
       let loans: Array<LoanType> = yield call(api.getUserBorrowHistory)
       loans = yield all(
         loans.map(function * (loan) {

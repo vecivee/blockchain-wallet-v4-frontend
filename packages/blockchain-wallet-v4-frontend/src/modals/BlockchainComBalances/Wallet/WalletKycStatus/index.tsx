@@ -1,5 +1,5 @@
 import { connect, ConnectedProps } from 'react-redux'
-import { Link, Text, TextGroup } from 'blockchain-info-components'
+import { Image, Link, Text, TextGroup } from 'blockchain-info-components'
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 
@@ -65,6 +65,46 @@ class WalletKycStatus extends PureComponent<Props, State> {
             )
           case 1:
             switch (val.userData.kycState) {
+              case 'NONE':
+                return (
+                  <Wrapper>
+                    <Text color='white' size='14px' weight={600}>
+                      <FormattedMessage
+                        id='copy.identity_verification.upgrade_to_gold'
+                        defaultMessage='Upgrade to Gold'
+                      />
+                    </Text>
+                    <TextGroup
+                      inline
+                      style={{ marginTop: '8px', lineHeight: '1' }}
+                    >
+                      <Text color='grey400' size='12px' weight={500}>
+                        <FormattedMessage
+                          id='copy.identity_verification.continue_to_gold'
+                          defaultMessage='Continue with your identity verification to start buying, borrowing, and earning interest.'
+                        />
+                      </Text>
+                      <Text
+                        color='blue400'
+                        size='12px'
+                        weight={500}
+                        cursor='pointer'
+                        onClick={() =>
+                          this.props.identityVerificationActions.verifyIdentity(
+                            2,
+                            false,
+                            'BalancesFlyout'
+                          )
+                        }
+                      >
+                        <FormattedMessage
+                          id='buttons.show_me_how'
+                          defaultMessage='Show me how.'
+                        />
+                      </Text>
+                    </TextGroup>
+                  </Wrapper>
+                )
               case 'PENDING':
               case 'UNDER_REVIEW':
                 return (
@@ -85,14 +125,24 @@ class WalletKycStatus extends PureComponent<Props, State> {
                           defaultMessage='Account Verification Under Review'
                         />
                       </Text>
+                      <Text
+                        color='blue400'
+                        size='12px'
+                        weight={500}
+                        cursor='pointer'
+                        onClick={() => {
+                          this.props.profileActions.fetchUserDataLoading()
+                          this.props.profileActions.fetchUser()
+                        }}
+                      >
+                        <FormattedMessage
+                          id='modals.simplebuy.refresh'
+                          defaultMessage='Refresh'
+                        />
+                      </Text>
                     </TextGroup>
                   </Wrapper>
                 )
-              default:
-                return null
-            }
-          case 2:
-            switch (val.userData.kycState) {
               case 'REJECTED':
               case 'EXPIRED':
                 return (
@@ -131,6 +181,27 @@ class WalletKycStatus extends PureComponent<Props, State> {
               default:
                 return null
             }
+          case 2:
+            return (
+              <Wrapper>
+                <Text
+                  color='white'
+                  size='14px'
+                  weight={600}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Image
+                    name='gold-verified'
+                    height='20px'
+                    style={{ marginRight: '8px' }}
+                  />
+                  <FormattedMessage
+                    id='components.identityverification.tiercard.gold'
+                    defaultMessage='Gold Level'
+                  />
+                </Text>
+              </Wrapper>
+            )
         }
       },
       Loading: () => null,
@@ -148,7 +219,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   identityVerificationActions: bindActionCreators(
     actions.components.identityVerification,
     dispatch
-  )
+  ),
+  profileActions: bindActionCreators(actions.modules.profile, dispatch)
 })
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
