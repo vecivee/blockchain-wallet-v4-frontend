@@ -23,7 +23,7 @@ const Wallet: React.FC<Props> = () => {
             Blockchain Wallet
           </Text>
         </Header>
-        <Row>
+        <Row style={{ marginTop: '16px' }}>
           <div>
             <Text
               size='12px'

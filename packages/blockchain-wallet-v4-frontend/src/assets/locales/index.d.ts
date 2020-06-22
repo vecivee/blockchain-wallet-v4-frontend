@@ -312,6 +312,8 @@ type MessagesType = {
   'copy.refunded': 'Refunded'
   'copy.to': 'To'
   'copy.view': 'View'
+  'copy.wallet.connect_to_exchange': 'Connect Your Wallet to the Exchange'
+  'copy.wallet.connect_to_exchange.keep_priv': 'Easily connect your Wallet to the Exchange and send crypto back and forth. All while keeping control of your private keys.'
   'copy.wallet.get_started': 'Get Started with Your Wallet'
   'dentityverification.verify.resubmit.reason.missing': 'The required photos are missing'
   'exchange-side-nav-tooltip-connected': 'connected'

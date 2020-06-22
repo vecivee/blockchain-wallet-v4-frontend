@@ -35,6 +35,7 @@ export const Button: FunctionComponent<{
     | 'secondary'
     | 'sent'
     | 'success'
+    | 'teal'
     | 'transferred'
     | 'warning'
     | 'white-blue'
@@ -47,7 +48,7 @@ export const Button: FunctionComponent<{
   height?: string
   jumbo?: boolean
   margin?: string
-  onClick?: () => void
+  onClick?: (event?: Event) => void
   padding?: string
   rounded?: boolean
   size?: string

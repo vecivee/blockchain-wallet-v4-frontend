@@ -2,8 +2,8 @@ import { Icon, Link, Text } from 'blockchain-info-components'
 import React from 'react'
 
 import { BalanceIcon, Child, Header, Row, Wrapper } from '../components'
-// import { FormattedMessage } from 'react-intl'
 import { Props as OwnProps } from '../index'
+import ConnectionStatus from './ConnectionStatus'
 
 const Exchange: React.FC<Props> = props => {
   return (
@@ -27,7 +27,7 @@ const Exchange: React.FC<Props> = props => {
             <Icon name='external-link' color='grey400' role='button' />
           </Header>
           <Row>
-            <div />
+            <ConnectionStatus />
           </Row>
         </Child>
       </Wrapper>

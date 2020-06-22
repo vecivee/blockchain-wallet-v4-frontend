@@ -1,7 +1,6 @@
 import { connect, ConnectedProps } from 'react-redux'
 import { Image, Link, Text, TextGroup } from 'blockchain-info-components'
 import React, { PureComponent } from 'react'
-import styled from 'styled-components'
 
 import { RemoteDataType } from 'core/types'
 import { RootState } from 'data/rootReducer'
@@ -11,13 +10,7 @@ import { actions } from 'data'
 import { bindActionCreators, Dispatch } from 'redux'
 import { FormattedMessage } from 'react-intl'
 import { getData } from './selectors'
-
-const Wrapper = styled.div`
-  padding: 16px;
-  margin-top: 16px;
-  border-radius: 8px;
-  background-color: ${props => props.theme.grey800};
-`
+import { StatusWrapper } from '../../components'
 
 class WalletKycStatus extends PureComponent<Props, State> {
   state = {}
@@ -28,7 +21,7 @@ class WalletKycStatus extends PureComponent<Props, State> {
         switch (val.userData.tiers.current) {
           case 0:
             return (
-              <Wrapper>
+              <StatusWrapper>
                 <Text color='white' size='14px' weight={600}>
                   <FormattedMessage
                     id='copy.wallet.get_started'
@@ -61,13 +54,13 @@ class WalletKycStatus extends PureComponent<Props, State> {
                     />
                   </Text>
                 </TextGroup>
-              </Wrapper>
+              </StatusWrapper>
             )
           case 1:
             switch (val.userData.kycState) {
               case 'NONE':
                 return (
-                  <Wrapper>
+                  <StatusWrapper>
                     <Text color='white' size='14px' weight={600}>
                       <FormattedMessage
                         id='copy.identity_verification.upgrade_to_gold'
@@ -103,12 +96,12 @@ class WalletKycStatus extends PureComponent<Props, State> {
                         />
                       </Text>
                     </TextGroup>
-                  </Wrapper>
+                  </StatusWrapper>
                 )
               case 'PENDING':
               case 'UNDER_REVIEW':
                 return (
-                  <Wrapper>
+                  <StatusWrapper>
                     <Text color='white' size='14px' weight={600}>
                       <FormattedMessage
                         id='copy.identity_verification.pending'
@@ -141,12 +134,12 @@ class WalletKycStatus extends PureComponent<Props, State> {
                         />
                       </Text>
                     </TextGroup>
-                  </Wrapper>
+                  </StatusWrapper>
                 )
               case 'REJECTED':
               case 'EXPIRED':
                 return (
-                  <Wrapper>
+                  <StatusWrapper>
                     <Text color='white' size='14px' weight={600}>
                       <FormattedMessage
                         id='copy.identity_verification.failed'
@@ -176,14 +169,14 @@ class WalletKycStatus extends PureComponent<Props, State> {
                         </Text>
                       </Link>
                     </TextGroup>
-                  </Wrapper>
+                  </StatusWrapper>
                 )
               default:
                 return null
             }
           case 2:
             return (
-              <Wrapper>
+              <StatusWrapper>
                 <Text
                   color='white'
                   size='14px'
@@ -200,7 +193,7 @@ class WalletKycStatus extends PureComponent<Props, State> {
                     defaultMessage='Gold Level'
                   />
                 </Text>
-              </Wrapper>
+              </StatusWrapper>
             )
         }
       },

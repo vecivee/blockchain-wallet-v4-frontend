@@ -154,6 +154,12 @@ const selectColor = (nature, disabled, small) => {
         backgroundColor: 'success',
         borderColor: 'success'
       }
+    case 'teal':
+      return {
+        color: 'white',
+        backgroundColor: 'teal600',
+        borderColor: 'teal600'
+      }
     case 'transferred':
       return {
         color: 'white',

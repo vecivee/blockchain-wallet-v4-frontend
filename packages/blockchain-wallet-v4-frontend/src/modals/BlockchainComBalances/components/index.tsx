@@ -5,7 +5,6 @@ import { Icon, SkeletonRectangle } from 'blockchain-info-components'
 
 export const Header = styled.div`
   display: flex;
-  margin-bottom: 16px;
   align-items: center;
   justify-content: space-between;
 `
@@ -24,8 +23,13 @@ export const Child = styled.div`
 export const BalanceIcon = styled(Icon)`
   padding-top: 20px;
 `
-const CustomSkeleton = styled(SkeletonRectangle)`
-  margin-top: 6px;
+
+export const StatusWrapper = styled.div`
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 8px;
+  background-color: ${props => props.theme.grey800};
+  transition: background-color 0.3s;
 `
 export const Wrapper = styled.div`
   display: flex;
@@ -42,10 +46,16 @@ export const Wrapper = styled.div`
       span[role='button'] {
         color: ${props => props.theme.white};
       }
+      ${StatusWrapper} {
+        background-color: ${props => props.theme.grey900};
+      }
     }
   }
 `
 
+const CustomSkeleton = styled(SkeletonRectangle)`
+  margin-top: 6px;
+`
 export const BalanceLoader = () => {
   return <CustomSkeleton height='14px' width='42px' bgColor='grey300' />
 }

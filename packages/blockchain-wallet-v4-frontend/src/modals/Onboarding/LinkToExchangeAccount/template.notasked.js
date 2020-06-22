@@ -48,7 +48,7 @@ const LeftColumn = styled.div`
 `
 
 const LeftContent = styled(Text)`
-  line-height: 22px;
+  line-height: 1.2;
 `
 
 const LeftColumnPoints = styled.div`
@@ -73,6 +73,7 @@ const PointRow = styled.div`
   align-items: center;
   padding: 12px 10px;
   margin-bottom: 8px;
+  padding-left: 0px;
 
   & > :first-child {
     margin-right: 15px;
@@ -137,7 +138,7 @@ const LinkToExchangeAccountNotAsked = ({
                 height='24px'
                 width='240px'
               />
-              <LeftContent color='white' size='18px' weight={400}>
+              <LeftContent color='white' size='16px' weight={500}>
                 <FormattedMessage
                   id='modals.onboarding.linktoexchangeaccount.na.subtitle-1'
                   defaultMessage="There's a new way to trade. Link your Wallet for instant access. "
