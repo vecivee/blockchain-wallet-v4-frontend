@@ -3,13 +3,13 @@ import { RootState } from 'data/rootReducer'
 import { selectors } from 'data'
 
 export const getData = (state: RootState) => {
-  const shareStatusR = selectors.modules.profile.getShareWalletAddressesStatus(
+  const isExchangeRelinkRequiredR = selectors.modules.profile.isExchangeRelinkRequired(
     state
   )
   const walletAddressesR = selectors.modules.profile.getWalletAddresses(state)
 
-  return lift((walletAddresses, shareStatus) => ({
-    shareStatus,
+  return lift((isExchangeRelinkRequired, walletAddresses) => ({
+    isExchangeRelinkRequired,
     walletAddresses
-  }))(walletAddressesR, shareStatusR)
+  }))(isExchangeRelinkRequiredR, walletAddressesR)
 }

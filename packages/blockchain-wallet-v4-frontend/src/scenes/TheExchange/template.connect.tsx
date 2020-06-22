@@ -63,7 +63,7 @@ const ExchangeConnect = (props: Props) => {
             </CustomSuccessCartridge>
             {props.data.cata({
               Success: val => {
-                return val.walletAddresses === {} ? (
+                return val.isExchangeRelinkRequired ? (
                   <Button
                     data-e2e='linkAgain'
                     nature='primary'

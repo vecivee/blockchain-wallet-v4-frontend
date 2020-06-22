@@ -47,7 +47,10 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 type LinkStatePropsType = {
   data: RemoteDataType<
     string,
-    { walletAddresses: { [key in CoinType]?: string } }
+    {
+      isExchangeRelinkRequired: boolean
+      walletAddresses: { [key in CoinType]?: string }
+    }
   >
   domains: { exchange: string }
   isExchangeAccountLinked: boolean

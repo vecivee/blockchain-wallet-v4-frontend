@@ -47,7 +47,6 @@ class ConnectionStatus extends PureComponent<Props, State> {
                     })
                     event.preventDefault()
                     event.stopPropagation()
-                    event.native.stopImmediatePropagation()
                   }}
                 >
                   <FormattedMessage

@@ -154,11 +154,7 @@ export const getShareWalletAddressesStatus = (state: RootState) =>
 // sometimes the link is "successful" but the addresses are not persisted and/or lost
 // now we need to ensure both settings exist and walletAddresses has keys (i.e. addresses)
 export const isExchangeAccountLinked = state =>
-  lift(
-    user =>
-      not(isNil(prop('settings', user))) &&
-      length(keys(prop('walletAddresses', user))) > 0
-  )(getUserData(state))
+  lift(user => not(isNil(prop('settings', user))))(getUserData(state))
 
 // related to selector above, but will check if addresses are no longer stored and
 // suggest to the linking saga that a relink should be attempted
